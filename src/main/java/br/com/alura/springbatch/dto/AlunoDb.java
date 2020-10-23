@@ -1,12 +1,19 @@
-package br.com.alura.springbatch.orm;
+package br.com.alura.springbatch.dto;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "aluno")
-public class AlunoSpringBatch {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "aluno")
+public class AlunoDb implements Serializable {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String cpf;
     private String nome;
     private String idade;
@@ -15,11 +22,11 @@ public class AlunoSpringBatch {
     private Integer classificacao;
     private Integer qtdAulas;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

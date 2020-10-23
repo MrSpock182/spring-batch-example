@@ -1,17 +1,16 @@
-package br.com.alura.springbatch.producer;
+package br.com.alura.springbatch.processor;
 
-import br.com.alura.springbatch.orm.AlunoAlura;
-import br.com.alura.springbatch.orm.AlunoSpringBatch;
+import br.com.alura.springbatch.dto.AlunoCsv;
+import br.com.alura.springbatch.dto.AlunoDb;
 import org.springframework.batch.item.ItemProcessor;
 
 import java.util.UUID;
 
-public class AlunoAluraProcessor implements ItemProcessor<AlunoAlura, AlunoSpringBatch> {
+public class AlunoProcessor implements ItemProcessor<AlunoCsv, AlunoDb> {
 
     @Override
-    public AlunoSpringBatch process(AlunoAlura s) throws Exception {
-        AlunoSpringBatch alunoSpringBatch = new AlunoSpringBatch();
-        alunoSpringBatch.setId(UUID.randomUUID().toString());
+    public AlunoDb process(AlunoCsv s) throws Exception {
+        AlunoDb alunoSpringBatch = new AlunoDb();
         alunoSpringBatch.setCpf(s.getCpf());
         alunoSpringBatch.setNome(s.getNome());
         alunoSpringBatch.setCidade(s.getCidade());

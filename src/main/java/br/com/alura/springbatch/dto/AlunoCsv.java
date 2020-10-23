@@ -1,6 +1,8 @@
-package br.com.alura.springbatch.orm;
+package br.com.alura.springbatch.dto;
 
-public class AlunoAlura {
+import java.io.Serializable;
+
+public class AlunoCsv implements Serializable {
     private String cpf;
     private String nome;
     private String idade;

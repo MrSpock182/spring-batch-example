@@ -1,6 +1,6 @@
 package br.com.alura.springbatch.listen;
 
-import br.com.alura.springbatch.orm.AlunoAlura;
+import br.com.alura.springbatch.dto.AlunoCsv;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.ItemReadListener;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 
 @Component
-public class AlunoAluraReaderListen implements ItemReadListener<AlunoAlura> {
+public class AlunoReaderListen implements ItemReadListener<AlunoCsv> {
 
     @Value("${alura.file.path}")
     private String path;
@@ -18,13 +18,13 @@ public class AlunoAluraReaderListen implements ItemReadListener<AlunoAlura> {
     @Value("${alura.file.file}")
     private String fileCsv;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AlunoAluraReaderListen.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AlunoReaderListen.class);
 
     @Override
     public void beforeRead() {}
 
     @Override
-    public void afterRead(AlunoAlura alunoAlura) {
+    public void afterRead(AlunoCsv alunoAlura) {
         new File( path + fileCsv).delete();
     }
 
