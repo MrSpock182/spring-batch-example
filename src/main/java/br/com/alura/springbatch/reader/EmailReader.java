@@ -12,10 +12,6 @@ import org.springframework.batch.repeat.RepeatStatus;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.Spliterators;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 public class EmailReader implements Tasklet, StepExecutionListener {
 
@@ -34,9 +30,7 @@ public class EmailReader implements Tasklet, StepExecutionListener {
 
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-        Iterable<UsuarioDb> iterable = repository.findAll();
-        list = StreamSupport.stream(iterable.spliterator(), false)
-                .collect(Collectors.toList());
+        list = repository.findAll();
         return RepeatStatus.FINISHED;
     }
 

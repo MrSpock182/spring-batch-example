@@ -3,13 +3,16 @@ package br.com.alura.springbatch.dto;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "aluno")
+@Table(name = "usuario")
 public class UsuarioDb implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String email;
 
@@ -31,8 +34,9 @@ public class UsuarioDb implements Serializable {
 
     @Override
     public String toString() {
-        return "UsuarioAlura{" +
-                "email='" + email + '\'' +
+        return "UsuarioDb{" +
+                "id='" + id + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

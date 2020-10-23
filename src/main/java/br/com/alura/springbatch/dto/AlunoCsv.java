@@ -42,8 +42,8 @@ public class AlunoCsv implements Serializable {
 
     @Override
     public String toString() {
-        return "AlunoAlura{" +
-                ", cpf='" + cpf + '\'' +
+        return "AlunoCsv{" +
+                "cpf='" + cpf + '\'' +
                 ", nome='" + nome + '\'' +
                 ", idade='" + idade + '\'' +
                 ", cidade='" + cidade + '\'' +

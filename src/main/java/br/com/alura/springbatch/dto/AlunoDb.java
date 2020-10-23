@@ -88,14 +88,15 @@ public class AlunoDb implements Serializable {
 
     @Override
     public String toString() {
-        return "AlunoSpringBatch{" +
-                "id=" + id +
+        return "AlunoDb{" +
+                "id='" + id + '\'' +
+                ", cpf='" + cpf + '\'' +
                 ", nome='" + nome + '\'' +
                 ", idade='" + idade + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", isSaoPaulo=" + isSaoPaulo +
-                ", classificacao='" + classificacao + '\'' +
-                ", qtdAulas='" + qtdAulas + '\'' +
+                ", classificacao=" + classificacao +
+                ", qtdAulas=" + qtdAulas +
                 '}';
     }
 }

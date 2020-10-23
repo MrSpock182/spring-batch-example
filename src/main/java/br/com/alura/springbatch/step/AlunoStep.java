@@ -67,11 +67,7 @@ public class AlunoStep {
 
     @StepScope
     private ItemProcessor<AlunoCsv, AlunoDb> getProcessor() {
-        AlunoProcessor processor = new AlunoProcessor();
-
-        CompositeItemProcessor<AlunoCsv, AlunoDb> composite = new CompositeItemProcessor<>();
-        composite.setDelegates(Collections.singletonList(processor));
-        return composite;
+        return new AlunoProcessor();
     }
 
     @StepScope
